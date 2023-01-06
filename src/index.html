@@ -1,13 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Corosel</title>
-</head>
-<body>
-    
-</body>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script src="main.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/de01e3e79c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Carosel</title>
+  </head>
+  <body>
+    <h1 class="text-3xl font-extrabold">Title of Corosel</h1>
+
+    <div
+      id="container"
+      class="h-[400px] flex justify-center items-center"
+      style="background-color: red"
+    >
+      <div
+        id="arrow-left"
+        class="absolute left-0 w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[rgba(128,128,128,0.2)] cursor-pointer active:bg-white"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+      <div
+        id="arrow-right"
+        class="absolute right-0 w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[rgba(128,128,128,0.2)] cursor-pointer active:bg-white"
+      >
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+
+      <form
+        id="input-box"
+        class="w-[400px] h-[100%] flex justify-center items-center flex-col"
+      >
+        <div id="text" class="text-3xl mb-10">Name: ""</div>
+        <div class="flex">
+          <input
+            placeholder="Change Text"
+            id="input-text"
+            type="text"
+            value=""
+            class="pl-[10px]"
+          />
+          <input id="color-picker" type="color" class="cursor-pointer" />
+        </div>
+
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-[30%] mt-3"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
 </html>
