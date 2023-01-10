@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
   const colorInput = document.getElementById("color-picker");
   const FORM = document.getElementById("input-box");
   const TEXT = document.getElementById("text");
+  const INDI = document.getElementById("indicator");
 
   function getSavedValue(key, initialValue) {
     const savedValue = JSON.parse(localStorage.getItem(key));
@@ -58,11 +59,11 @@ window.addEventListener("load", () => {
     coroselList[screen]["text"] =
       textInput.value == "" ? coroselList[screen]["text"] : textInput.value;
     coroselList[screen]["color"] =
-      colorInput.value == "#000000"
+      colorInput.value == coroselList[screen]["color"]
         ? coroselList[screen]["color"]
         : colorInput.value;
 
-    colorInput.value = "#000000";
+    colorInput.value = coroselList[screen]["color"];
     renderDisplay(screen);
     textInput.value = "";
     console.log(coroselList);
@@ -82,9 +83,23 @@ window.addEventListener("load", () => {
     console.log(coroselList[ind]);
     TEXT.innerText = `${coroselList[ind]["testDes"]} : ${coroselList[ind].text}`;
 
+    let x = INDI.childNodes;
+    x.forEach((ele, ind) => {
+      console.log(ele, ind);
+      if (ind % 2 != 0) {
+        let y = ele.getAttribute("id");
+        if (y == screen) {
+          ele.style.backgroundColor = "blue";
+        } else {
+          ele.style.backgroundColor = "white";
+        }
+      }
+    });
+
     Container.style.backgroundColor = coroselList[ind]["color"];
 
     saveValue(coroselList);
+    colorInput.value = coroselList[screen]["color"];
   }
 
   renderDisplay(screen);
